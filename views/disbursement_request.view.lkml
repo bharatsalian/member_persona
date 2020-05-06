@@ -1029,17 +1029,12 @@ view: disbursement_request {
       third_party_name,
       eft_bank_payee_name,
       recip_sort_name,
-      disbursement.payee_name,
-      disbursement.eft_bank_name,
-      disbursement.account_name,
-      disbursement.organization_name,
-      disbursement.third_party_name,
-      disbursement.root_disbursement_id,
+      sum_gross_amount,
+      sum_total_deduction_amt,
       disbursement.eft_bank_payee_name,
       disbursement.recip_sort_name,
       member.member_id,
-      disbursement_distribution.disbursement_distribution_id,
-      disbursement_deduction.count
+
     ]
   }
 }

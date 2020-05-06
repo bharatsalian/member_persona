@@ -353,6 +353,6 @@ view: indem_claim_application {
 
   measure: count {
     type: count
-    drill_fields: [indem_claim_application_id, enrollment_coverage.enrollment_coverage_id, indem_claim_benefit.count]
+    drill_fields: [indem_claim_application.indem_claim_application_id,indem_claim_application.indem_claim_number ,indem_claim_status.display_name,person.sort_name, indem_claim_benefit.final_amount]
   }
 }

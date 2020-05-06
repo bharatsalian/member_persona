@@ -205,3 +205,25 @@ explore: dependent {
   }
 
 }
+
+
+explore: cobra_event {
+  join: member {
+    type: left_outer
+    sql_on: ${cobra_event.member_id} = ${member.member_id} ;;
+    relationship: one_to_many
+  }
+  join: person {
+    type: left_outer
+    sql_on: ${member.person_id} = ${person.person_id} ;;
+    relationship: one_to_one
+  }
+  join: covered_person {
+    from: person
+    type: left_outer
+    sql_on: ${cobra_event.covered_id} = ${covered_person.person_id} ;;
+    relationship: many_to_one
+  }
+
+
+}

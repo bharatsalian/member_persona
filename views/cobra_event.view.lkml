@@ -74,6 +74,19 @@ view: cobra_event {
     type: string
     sql: ${TABLE}.covered_relation ;;
   }
+  dimension_group: thur_date {
+    type: time
+    timeframes: [
+      raw,
+      time,
+      date,
+      week,
+      month,
+      quarter,
+      year
+    ]
+    sql: add_months(${TABLE}.event_date,${duration})-1 ;;
+  }
 
   dimension_group: date_01 {
     type: time
@@ -166,6 +179,7 @@ view: cobra_event {
   }
 
   dimension: event_id {
+    primary_key: yes
     type: number
     sql: ${TABLE}.event_id ;;
   }
@@ -319,6 +333,6 @@ view: cobra_event {
 
   measure: count {
     type: count
-    drill_fields: [member.member_id]
+    drill_fields: [event_date,event_status,event_type,old_plan_code,new_plan_code,election_date,elected_plan,coverage_cost,admin_cost,letter_date,cobra_event.thru_date,person.sort_name,covered_person.sort_name]
   }
 }

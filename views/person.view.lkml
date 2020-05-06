@@ -35,17 +35,17 @@ view: person {
       {% if value == 'Male' %}
 
           <div class="img-with-text">
-              <img src="https://memberimage123.s3.amazonaws.com/male.jpg" height=25% width=35% />
+              <img src="https://memberimage123.s3.amazonaws.com/male.jpg" height=25% width=25% />
               <p>{{rendered_value}}</p>
           </div>
       {% elsif value == 'Female' %}
           <div class="img-with-text">
-              <img src="https://memberimage123.s3.amazonaws.com/female.jpg" height=25% width=35% />
+              <img src="https://memberimage123.s3.amazonaws.com/female.jpg" height=25% width=25% />
               <p>{{rendered_value}}</p>
           </div>
       {% else %}
           <div class="img-with-text">
-              <img src="https://memberimage123.s3.amazonaws.com/no-user-image.gif"height=25% width=35% />
+              <img src="https://memberimage123.s3.amazonaws.com/no-user-image.gif"height=25% width=25% />
               <p>{{rendered_value}}</p>
           </div>
       {% endif %}
@@ -841,6 +841,9 @@ view: person {
   }
 
   dimension: sort_name {
+    label:"{% if  _view._name == 'person' %} {{'Sort Name'}}
+            {% else if  _view._name == 'orig_person' %} {{'Person Sort name'}}
+            {% else %} {{ 'Sort Name'}} {% endif %} "
     type: string
     sql: ${TABLE}.sort_name ;;
   }

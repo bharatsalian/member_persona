@@ -515,7 +515,7 @@ view: dependent {
 
   measure: count {
     type: count
-    drill_fields: [person.person_id,person.sort_name,dep_person.first_name,dep_person.middle_name,dep_person.last_name,dep_person.nick_name, relation,dependent.count]
+    drill_fields: [person.person_id,orig_person.sort_name,person.sort_name,relation]
   }
 
 }
